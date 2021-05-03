@@ -77,6 +77,11 @@ text3.addEventListener('click', () => {
     if (curColor3 === colors.length) curColor3 = 0;
 })
 
+
+
+
+
+
 //-----------------5.0.-----------------
 function palindrom(pal) {
     const palUp = pal.toUpperCase()
@@ -127,3 +132,7 @@ function getRandomList(min, max) {
 }
 const result = getRandomList;
 console.log(result(0, 100));
+
+
+
+
