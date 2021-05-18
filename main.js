@@ -1,28 +1,61 @@
-//--------------5.0.--------------
-const sum = function (num1) {
-    return function (num2) {
-        return num1 + num2;
+//----------------5.0.----------------
+function getNewDate(date) {
+    let year = date.slice(0, 4);
+    const month = date.slice(5, 7);
+    const day = date.slice(8, 10);
+    return day + '.' + month + '.' + year;
+}
+const newDate = getNewDate;
+console.log(newDate('2020-11-26'))
+//----------------6.0.----------------
+const data = [
+    {
+        country: 'Russia',
+        city: 'Saint Petersburg',
+        hotel: 'Hotel Leopold',
+    },
+    {
+        country: 'Spain',
+        city: 'Santa Cruz de Tenerife',
+        hotel: 'Apartment Sunshine',
+    },
+    {
+        country: 'Slowakia',
+        city: 'Vysokie Tatry',
+        hotel: 'Villa Kunerad',
+    },
+    {
+        country: 'Germany',
+        city: 'Berlin',
+        hotel: 'Hostel Friendship',
+    },
+    {
+        country: 'Indonesia',
+        city: 'Bali',
+        hotel: 'Ubud Bali Resort&SPA',
+    },
+    {
+        country: 'Netherlands',
+        city: 'Rotterdam',
+        hotel: 'King Kong Hostel',
+    },
+    {
+        country: 'Marocco',
+        city: 'Ourika',
+        hotel: 'Rokoko Hotel',
+    },
+    {
+        country: 'Germany',
+        city: 'Berlin',
+        hotel: 'Hotel Rehberge Berlin Mitte',
+    },
+];
+function checkMatching(re) {
+    const reUp = re.toUpperCase()
+    for (i in data) {
+        const list = (data[i].country + ', ' + data[i].city + ', ' + data[i].hotel);
+        const listUp = list.toUpperCase()
+        if (listUp.includes(reUp)) console.log(list)
     }
 }
-console.log(sum(2)(3))
-//--------------6.0.--------------
-const colors = ['magenta', 'cyan', 'firebrick', 'springgreen', 'skyblue'];
-const text1 = document.getElementById('text1');
-const text2 = document.getElementById('text2');
-const text3 = document.getElementById('text3');
-let curColor1 = 0, curColor2 = 0, curColor3 = 0;
-text1.addEventListener('click', () => {
-    text1.style.background = colors[curColor1];
-    curColor1 ++;
-    if (curColor1 === colors.length) curColor1 = 0;
-})
-text2.addEventListener('click', () => {
-    text2.style.background = colors[curColor2];
-    curColor2 ++;
-    if (curColor2 === colors.length) curColor2 = 0;
-})
-text3.addEventListener('click', () => {
-    text3.style.background = colors[curColor3];
-    curColor3 ++;
-    if (curColor3 === colors.length) curColor3 = 0;
-})
+checkMatching(prompt('Enter the string: '))
