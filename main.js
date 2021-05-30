@@ -226,4 +226,3 @@ const countries = hotels.reduce((total, item) => {
     return result;
 }, {})
 console.log(countries)
-
