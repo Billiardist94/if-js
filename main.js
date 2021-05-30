@@ -1,6 +1,8 @@
 //----------------5.0.----------------
-const str = prompt('Enter the string: ');
-console.log(str.toLowerCase() === str.split('').reverse().join('').toLowerCase());
+const palindrome = function (str) {
+    console.log(str.toLowerCase() === str.split('').reverse().join('').toLowerCase());
+}
+palindrome('шалаш')
 //----------------6.0.----------------
 const data = [
     {
@@ -54,7 +56,7 @@ function checkMatching(re) {
         }
     });
 }
-checkMatching(prompt('Enter the string: '))
+checkMatching('Berlin')
 //----------------7.0.----------------
 const hotels = [
     {
