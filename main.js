@@ -43,7 +43,8 @@ class Student extends User {
         this.courseName = courseName;
     }
     get course() {
-        return 2021 - this.admissionYear;
+        const currentYear = new Date().getFullYear();
+        return currentYear - this.admissionYear;
     }
 }
 
