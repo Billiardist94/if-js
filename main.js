@@ -1,138 +1,61 @@
-// ----------------6.1.----------------
-let user = 'John Doe';
-console.log(user);
-// ----------------6.3.----------------
-const student = 'Pavel';
-console.log(student);
-// ----------------6.5.----------------
-user = student;
-// Значение переменной user равно значению переменной student, а именно 'Pavel'
-console.log(user);
-// ----------------7.1.----------------
-let test = 1;
-++test;
-test += '1';
-// Значение переменной test равно '21'
-console.log(test);
-console.log(typeof test);
-// ----------------7.6.----------------
-test -= 1;
-// Значение переменной test равно 20
-console.log(test);
-console.log(typeof test);
-// ----------------7.9.----------------
-test = !!test;
-// Значение переменной test равно true
-console.log(test);
-console.log(typeof test);
-// ----------------8.0.----------------
-test = [2, 3, 5, 8];
-let result = 1;
-for (let i = 0; i < test.length; i++) {
-  result *= test[i];
+//----------------5.0.----------------
+function getNewDate(date) {
+    let year = date.slice(0, 4);
+    const month = date.slice(5, 7);
+    const day = date.slice(8, 10);
+    return day + '.' + month + '.' + year;
 }
-console.log(result);
-// ----------------9.0.----------------
-test = [2, 5, 8, 15, 0, 6, 20, 3];
-for (let i = 0; i < test.length; i++) {
-  const result = test[i];
-  if (result > 5 && result < 10) {
-    console.log(result);
-  }
-}
-// ----------------10.0.----------------
-test = [2, 5, 8, 15, 0, 6, 20, 3];
-for (let i = 0; i < test.length; i++) {
-  const result = test[i];
-  if (result % 2 === 0 && result !== 0) {
-    console.log(result);
-  }
-}
-//--------------5.0.--------------
-const sum = function (num1) {
-    return function (num2) {
-        return num1 + num2;
+const newDate = getNewDate;
+console.log(newDate('2020-11-26'))
+//----------------6.0.----------------
+const data = [
+    {
+        country: 'Russia',
+        city: 'Saint Petersburg',
+        hotel: 'Hotel Leopold',
+    },
+    {
+        country: 'Spain',
+        city: 'Santa Cruz de Tenerife',
+        hotel: 'Apartment Sunshine',
+    },
+    {
+        country: 'Slowakia',
+        city: 'Vysokie Tatry',
+        hotel: 'Villa Kunerad',
+    },
+    {
+        country: 'Germany',
+        city: 'Berlin',
+        hotel: 'Hostel Friendship',
+    },
+    {
+        country: 'Indonesia',
+        city: 'Bali',
+        hotel: 'Ubud Bali Resort&SPA',
+    },
+    {
+        country: 'Netherlands',
+        city: 'Rotterdam',
+        hotel: 'King Kong Hostel',
+    },
+    {
+        country: 'Marocco',
+        city: 'Ourika',
+        hotel: 'Rokoko Hotel',
+    },
+    {
+        country: 'Germany',
+        city: 'Berlin',
+        hotel: 'Hotel Rehberge Berlin Mitte',
+    },
+];
+function checkMatching(re) {
+    const reUp = re.toUpperCase()
+    for (i in data) {
+        const list = (data[i].country + ', ' + data[i].city + ', ' + data[i].hotel);
+        const listUp = list.toUpperCase()
+        if (listUp.includes(reUp)) console.log(list)
     }
 }
-console.log(sum(2)(3))
-//--------------6.0.--------------
-const colors = ['magenta', 'cyan', 'firebrick', 'springgreen', 'skyblue'];
-const text1 = document.getElementById('text1');
-const text2 = document.getElementById('text2');
-const text3 = document.getElementById('text3');
-let curColor1 = 0, curColor2 = 0, curColor3 = 0;
-text1.addEventListener('click', () => {
-    text1.style.background = colors[curColor1];
-    curColor1 ++;
-    if (curColor1 === colors.length) curColor1 = 0;
-})
-text2.addEventListener('click', () => {
-    text2.style.background = colors[curColor2];
-    curColor2 ++;
-    if (curColor2 === colors.length) curColor2 = 0;
-})
-text3.addEventListener('click', () => {
-    text3.style.background = colors[curColor3];
-    curColor3 ++;
-    if (curColor3 === colors.length) curColor3 = 0;
-})
-
-
-
-
-
-
-//-----------------5.0.-----------------
-function palindrom(pal) {
-    const palUp = pal.toUpperCase()
-    const list = [];
-    for (i of palUp) {
-        if (i === ' ' || i === '.' || i === ',' || i === '!') {
-            continue
-        } else {
-            list.push(i);
-        }
-    }
-    while (list.length > 0) {
-        if (list[0] === list[list.length - 1]) {
-            list.pop();
-            list.shift();
-            if (list.length === 0) {
-                alert(`'${pal}' is a palindrom`)
-            }
-        } else {
-            alert(`'${pal}' is not a palindrom`)
-            break
-        }
-    }
-}
-const checkPal = palindrom;
-checkPal(prompt('Enter some phrase: '));
-//-----------------6.1.-----------------
-let min = (a, b) => (a > b) ? b : (a === b) ? ('equal') : a;
-alert(min(prompt('Enter the first number: '), prompt('Enter the second number: ')));
-//-----------------6.2.-----------------
-let max = (a, y) => (a > y) ? a : (a === y) ? ('equal') : y;
-alert(max(prompt('Enter the first number: '), prompt('Enter the second number: ')));
-//-----------------7.0.-----------------
-const list = [];
-function getRandomList(min, max) {
-    for (let i = Math.floor(Math.random() * (max - min + 1) + min); list.length < 10; i = Math.floor(Math.random() * (max - min + 1) + min)) {
-        list.push(i);
-    }
-    for (i of list) {
-        if (i % 10 === 0){
-            const index = list.indexOf(i);
-            const str = String(i);
-            const newStr = str.replace(/0/g, 'zero');
-            list.splice(index, 1, newStr);
-        }
-    }
-    return list;
-}
-const result = getRandomList;
-console.log(result(0, 100));
-
-
-
-
+checkMatching(prompt('Enter the string: '))
