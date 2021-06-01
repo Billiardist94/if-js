@@ -29,7 +29,6 @@ const obj3 = {
     },
     b: 'b',
 };
-
 const deepEqual = function (obj1, obj2) {
     if (obj1 === obj2) {
         return true;
