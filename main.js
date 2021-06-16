@@ -23,8 +23,7 @@ const colors = {
             };
         }
     },
-};
-
+}
 const changeStyle = function (event) {
     event.target.style.background = colors.next().value
     console.log(event.target)
