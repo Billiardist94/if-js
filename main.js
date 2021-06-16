@@ -103,4 +103,3 @@ const homesListCardsHTML = data.map(card => {
 }).join('')
 ul.innerHTML = homesListCardsHTML;
 console.log(ul)
-
