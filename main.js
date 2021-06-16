@@ -32,4 +32,3 @@ const changeStyle = function (event) {
 text.forEach(item => {
     item.addEventListener('click', changeStyle)
 })
-
