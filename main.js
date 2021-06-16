@@ -12,4 +12,5 @@ const getFormValues = function (event) {
             console.log(data)
         })
 }
+
 form.addEventListener('submit', getFormValues)
