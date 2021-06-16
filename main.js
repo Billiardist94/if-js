@@ -48,12 +48,22 @@ const generateCard = (name, city, country, imageUrl) => {
     `;
 }
 
-async function getContent(url) {
-    const response = await fetch(url);
-    const json = await response.json();
-    let homesListCardsHTML = json.map(card => {
+if (sessionStorage.getItem('homesList') !== null) {
+    let homesListCardsHTML = JSON.parse(sessionStorage.homesList).map(card => {
         return generateCard(card.name, card.city, card.country, card.imageUrl)
     }).join('')
     ul.innerHTML = homesListCardsHTML;
 }
-getContent('https://fe-student-api.herokuapp.com/api/hotels/popular')
+else {
+    async function getContent(url) {
+        const response = await fetch(url);
+        const json = await response.json();
+        const sesStorage = sessionStorage;
+        sesStorage.homesList = JSON.stringify(json)
+        let homesListCardsHTML = JSON.parse(sesStorage.homesList).map(card => {
+            return generateCard(card.name, card.city, card.country, card.imageUrl)
+        }).join('')
+        ul.innerHTML = homesListCardsHTML;
+    }
+    getContent('https://fe-student-api.herokuapp.com/api/hotels/popular')
+}
