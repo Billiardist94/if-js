@@ -302,6 +302,7 @@ const clickPlusAdults = function (event) {
         personsItem1Btn1.classList.remove('disabled-btn')
         personsItem1Btn1.addEventListener('click', clickMinusAdults);
     }
+
     if (adultsInt > 29) {
         personsItem1Btn2.classList.add('disabled-btn');
         personsItem1Btn2.removeEventListener('click', clickPlusAdults)
