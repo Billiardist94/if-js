@@ -6,6 +6,9 @@ const getFormValues = function (event) {
     fetch('https://fe-student-api.herokuapp.com/api/file', {
         method: 'POST',
         body: formData,
+        header: {
+            'Content-type': 'multipart/form-data',
+        }
     })
         .then(response => response.json())
         .then(data => {
