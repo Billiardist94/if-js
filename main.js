@@ -9,6 +9,7 @@ promise.then(function (response) {
         const homesGuestUl = document.querySelector('.homes-list')
         json.forEach((element) => {
             homesGuestUl.innerHTML += `
+
         <li class="homes-list-item col-3 col-md-6 col-sm-3">
         <div class="homes-list-card">
             <div class="homes-list-images">
