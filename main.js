@@ -1,19 +1,70 @@
-const {form} = document.forms;
+const data = [
+    {
+        name: 'Hotel Leopold',
+        city: 'Saint Petersburg',
+        country: 'Russia',
+        imageUrl: 'https://res.cloudinary.com/intellectfox/image/upload/v1610379365/fe/hotel-leopold_mflelk.jpg',
+    },
+    {
+        name: 'Apartment Sunshine',
+        city: 'Santa  Cruz de Tenerife',
+        country: 'Spain',
+        imageUrl: 'https://res.cloudinary.com/intellectfox/image/upload/v1610379364/fe/apartment-sunshine_vhdlel.jpg',
+    },
+    {
+        name: 'Villa Kunerad',
+        city: 'Vysokie Tatry',
+        country: 'Slowakia',
+        imageUrl: 'https://res.cloudinary.com/intellectfox/image/upload/v1610379365/fe/villa-kunerad_gdbqgv.jpg',
+    },
+    {
+        name: 'Hostel Friendship',
+        city: 'Berlin',
+        country: 'Germany',
+        imageUrl: 'https://res.cloudinary.com/intellectfox/image/upload/v1610379364/fe/hostel-friendship_aw6tn7.jpg',
+    },
+    {
+        name: 'Radisson Blu Hotel',
+        city: 'Kyiv',
+        country: 'Ukraine',
+        imageUrl: 'https://res.cloudinary.com/intellectfox/image/upload/v1610379365/fe/radisson-blu-hotel_jwtowg.jpg',
+    },
+    {
+        name: 'Paradise Hotel',
+        city: 'Guadalupe',
+        country: 'Mexico',
+        imageUrl: 'https://res.cloudinary.com/intellectfox/image/upload/v1610379365/fe/paradise-hotel_i6whae.jpg',
+    },
+    {
+        name: 'Hotel Grindewald',
+        city: 'Interlaken',
+        country: 'Switzerland',
+        imageUrl: 'https://res.cloudinary.com/intellectfox/image/upload/v1610379365/fe/hotel-grindewald_zsjsmy.jpg',
+    },
+    {
+        name: 'The Andaman Resort',
+        city: 'Port Dickson',
+        country: 'Malaysia',
+        imageUrl: 'https://res.cloudinary.com/intellectfox/image/upload/v1610379365/fe/the-andaman-resort_d2xksj.jpg',
+    },
+];
 
-const getFormValues = function (event) {
-    event.preventDefault();
-    const formData = new FormData(form);
-    fetch('https://fe-student-api.herokuapp.com/api/file', {
-        method: 'POST',
-        body: formData,
-        header: {
-            'Content-type': 'multipart/form-data',
-        }
-    })
-        .then(response => response.json())
-        .then(data => {
-            console.log(data)
-        })
-}
+const homesGuestUl = document.querySelector('.homes-list')
 
-form.addEventListener('submit', getFormValues)
+data.forEach((element) => {
+    homesGuestUl.innerHTML += `
+        <li class="homes-list-item col-3 col-md-6 col-sm-3">
+        <div class="homes-list-card">
+            <div class="homes-list-images">
+                <img src=${element.imageUrl} alt=${element.name} class="homes-link-image">
+            </div>
+            <div class="homes-list-content">
+                <div class="homes-list-heading">
+                    <span class="homes-list-title">${element.name}</span>
+                    <span class="homes-list-subtitle">${element.city}, ${element.country}</span>
+                </div>
+            </div>
+        </div>
+    </li>
+  `;
+})
