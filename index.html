@@ -1,12 +1,93 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>Intro</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<section class="intro" style="background: grey;">
+    <div class="container">
+        <h1 class="intro-title">Discover stays<br>
+            to live, work or just relax</h1>
+        <form class="form" action="#" method="post">
+            <div class="inputs">
+                <div class="destination search-form-group col-4 col-md-12 col-sm-6">
+                    <svg class="loupe-icon destination-loupe-icon" xmlns="http://www.w3.org/2000/svg" fill="none" width="16" height="16">
+                        <path d="M27.414 24.586l-5.077-5.077C23.386 17.928 24 16.035 24 14c0-5.514-4.486-10-10-10S4 8.486 4 14s4.486 10 10 10c2.035 0 3.928-.614 5.509-1.663l5.077 5.077c.78.781 2.048.781 2.828 0 .781-.781.781-2.047 0-2.828zM7 14c0-3.86 3.14-7 7-7s7 3.14 7 7-3.14 7-7 7-7-3.14-7-7z"></path>
+                    </svg>
+                    <input class="destination-form input-form" placeholder="New York" id="destination" type="text">
+                    <label class="label label-1" for="destination">Your destination or hotel name</label>
+                </div>
+                <div class="dates search-form-group col-3 col-md-6 col-sm-6">
+                    <input class="date-form input-form" type="text" id="date1" placeholder="Tue 15 Sept">
+                    <label class="label label-2" for="date1">Check-in</label>
+                    <input class="date-form input-form" type="text" id="date2" placeholder="Sat 19 Sept">
+                    <label class="label label-3" for="date2">Check-out</label>
+                    <label class="label check-label-desktop" for="date1">Check-in — Check-out</label>
+                </div>
+                <div class="persons search-form-group col-3 col-md-6 col-sm-6">
+                    <div id="persons">
+                    <span class="guests_count">
+                        <span id="adultsSpan">2 Adults</span>
+                        <span id="childrenSpan">&nbsp;—&nbsp; 0 Children</span>
+                        <span id="roomsSpan">&nbsp;—&nbsp; 1 Room</span>
+                    </span>
+                    </div>
+                    <div class="block" style="display: none;">
+                        <div class="box">
+                            <div class="item" id="itemAdults">
+                                <span>Adults</span>
+                                <div class="choose" id="chooseAdults">
+                                    <input class="input" id="inputAdults" type="number" value="2" style="display: none">
+                                    <button class="btn" id="btnAdultMinus" type="button">
+                                        <span>-</span>
+                                    </button>
+                                    <span id="adultsNum">2</span>
+                                    <button class="btn" id="btnAdultPlus" type="button">
+                                        <span>+</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="item" id="itemChildren">
+                                <span>Children</span>
+                                <div class="choose" id="chooseChildren">
+                                    <input class="input" id="inputChildren" type="number" value="0" style="display: none">
+                                    <button class="btn disabled-btn" id="btnChildrenMinus" type="button">
+                                        <span>-</span>
+                                    </button>
+                                    <span id="childrenNum">0</span>
+                                    <button class="btn" id="btnChildrenPlus" type="button">
+                                        <span>+</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="item" id="itemRooms">
+                                <span>Rooms</span>
+                                <div class="choose" id="chooseRooms">
+                                    <input class="input" id="inputRooms" type="number" value="1" style="display: none">
+                                    <button class="btn" id="btnRoomsMinus" type="button">
+                                        <span>-</span>
+                                    </button>
+                                    <span id="roomsNum">1</span>
+                                    <button class="btn" id="btnRoomsPlus" type="button">
+                                        <span>+</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="child-age" style="display: none;">
+                                <p class="child-age-span">What is the age of the child you’re travelling with?</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="submit search-form-group col-2 col-md-12 col-sm-6">
+                    <input class="submit-form input-form" type="submit" id="submit" value="Search">
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
 <script src="main.js"></script>
-<script src="main.test.js"></script>
 </body>
 </html>
