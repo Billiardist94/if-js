@@ -1,15 +1,8 @@
-let url = new URL('https://fe-student-api.herokuapp.com/api/hotels/popular');
-let promise = fetch(url);
+const homesGuestUl = document.querySelector('.homes-list')
 
-promise.then(function (response) {
-    return response.json();
-})
-    .then(function (json) {
-        console.log(json)
-        const homesGuestUl = document.querySelector('.homes-list')
-        json.forEach((element) => {
-            homesGuestUl.innerHTML += `
-
+const parseJSON = function () {
+    JSON.parse(sessionStorage.homesList).forEach((element) => {
+        homesGuestUl.innerHTML += `
         <li class="homes-list-item col-3 col-md-6 col-sm-3">
         <div class="homes-list-card">
             <div class="homes-list-images">
@@ -24,5 +17,19 @@ promise.then(function (response) {
         </div>
     </li>
   `;
-        })
     })
+}
+
+async function getContent(url) {
+    const response = await fetch(url);
+    const json = await response.json();
+    const sesStorage = sessionStorage;
+    sesStorage.homesList = JSON.stringify(json)
+    parseJSON()
+}
+
+if (sessionStorage.getItem('homesList') !== null) {
+    parseJSON()
+} else {
+    getContent('https://fe-student-api.herokuapp.com/api/hotels/popular')
+}
