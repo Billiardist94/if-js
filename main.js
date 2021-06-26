@@ -20,17 +20,16 @@ const parseJSON = function () {
     })
 }
 
-if (sessionStorage.getItem('homesList') !== null) {
+async function getContent(url) {
+    const response = await fetch(url);
+    const json = await response.json();
+    const sesStorage = sessionStorage;
+    sesStorage.homesList = JSON.stringify(json)
     parseJSON()
 }
 
-else {
-    async function getContent(url) {
-        const response = await fetch(url);
-        const json = await response.json();
-        const sesStorage = sessionStorage;
-        sesStorage.homesList = JSON.stringify(json)
-        parseJSON()
-    }
+if (sessionStorage.getItem('homesList') !== null) {
+    parseJSON()
+} else {
     getContent('https://fe-student-api.herokuapp.com/api/hotels/popular')
 }
