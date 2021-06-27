@@ -152,7 +152,6 @@ button, a, label {
     color: #FFFFFF;
     margin-bottom: 100px;
 }
-
 .form{
     display: flex;
     flex-direction: column;
@@ -1223,7 +1222,6 @@ input[type="number"]::-webkit-inner-spin-button {
     .col-sm-6{
         width: 100%;
     }
-
     .offers-cards{
         font-size: 15px;
         line-height: 18px;
