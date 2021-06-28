@@ -139,7 +139,7 @@ button, a, label {
 /*Intro block start*/
 .intro{
     min-height: 100vh;
-    background-image: url("images/intro-bg.jpg");
+    background-image: url("images/bg-image.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -300,6 +300,12 @@ input[type="number"]::-webkit-inner-spin-button {
     display: flex;
     margin-top: 20px
 }
+.child-age-selection {
+    height: auto;
+    background-color: #fff;
+    border: 1px solid #fff;
+}
+
 .child-age-span,
 .select-child-age{
     font-size: 12px;
@@ -312,8 +318,8 @@ input[type="number"]::-webkit-inner-spin-button {
     box-sizing: border-box;
     width: 100px;
     height: 30px;
-    display: flex;
-    margin-top: 10px;
+    margin: 5px 5px 0 0;
+    float: left;
 }
 
 .apps-form{
@@ -354,6 +360,16 @@ input[type="number"]::-webkit-inner-spin-button {
     width: 50%;
 }
 /*Columns layout end*/
+
+/*Available hotels start*/
+.available-hotels{
+    display: none;
+    background: #EAF0F9;
+    padding-top: 120px;
+    padding-bottom: 120px;
+    color: #383838;
+}
+/*Available hotels end*/
 
 /*Offers block start*/
 .offers-block{

@@ -47,6 +47,9 @@ const personsItem3Btn2 = document.querySelector('#btnRoomsPlus')
 //___<div class="child-age">___
 const personsChild = document.querySelector('.child-age')
 
+//___<div class="child-age-selection">___
+const childAgeSelection = document.querySelector('.child-age-selection')
+
 //_________________________________________________________________________________
 //___появление блока с фильтром___
 const openBox = function (){
@@ -61,8 +64,9 @@ inputDiv.addEventListener('click', openBox);
 //___клик на кнопки +/-_________________________________________________________________________________
 let adultsInt = Number.parseInt(personsItem1Input.value);
 let adultsNum = document.querySelector('#adultsNum');
-let childrenInt = Number.parseInt(personsItem2Input.value);
-let childrenNum = document.querySelector('#childrenNum');
+// let childrenInt = Number.parseInt(personsItem2Input.value);
+let childrenNum = document.querySelector('#childrenNum').innerHTML
+let childrenInt = Number.parseInt(childrenNum)
 let roomsInt = Number.parseInt(personsItem3Input.value);
 let roomsNum = document.querySelector('#roomsNum');
 //________________________________клик по Adults________________________________________________
@@ -82,7 +86,6 @@ const clickPlusAdults = function (event) {
         personsItem1Btn1.classList.remove('disabled-btn')
         personsItem1Btn1.addEventListener('click', clickMinusAdults);
     }
-
     if (adultsInt > 29) {
         personsItem1Btn2.classList.add('disabled-btn');
         personsItem1Btn2.removeEventListener('click', clickPlusAdults)
@@ -120,9 +123,12 @@ personsItem1Btn1.addEventListener('click', clickMinusAdults);
 //________________________________клик по Children_______________________________________________
 //___клик по +___
 const clickPlusChildren = function (event) {
+
     childrenInt += 1;
-    childrenNum.innerHTML = childrenInt;
-    console.log(childrenInt)
+    console.log('childrenInt: ' + childrenInt)
+    childrenNum = String(childrenInt)
+    console.log('childrenNum: ' + childrenNum)
+    document.querySelector('#childrenNum').innerHTML = childrenNum
     if (childrenInt === 1) {
         childrenCount.innerHTML = `${'&nbsp;—&nbsp;'} ${childrenInt} ${' Child'}`;
     } else {
@@ -143,7 +149,6 @@ const clickPlusChildren = function (event) {
         personsItem2Btn2.classList.remove('disabled-btn')
         personsItem2Btn2.addEventListener('click', clickPlusChildren);
     }
-
 };
 personsItem2Btn2.addEventListener('click', clickPlusChildren);
 // ___клик по -___
@@ -152,8 +157,11 @@ const clickMinusChildren = function (event) {
         return
     }
     childrenInt -= 1;
-    childrenNum.innerHTML = childrenInt;
-    console.log(childrenInt)
+    console.log('childrenInt: ' + childrenInt)
+    childrenNum = String(childrenInt)
+    console.log('childrenNum: ' + childrenNum)
+    document.querySelector('#childrenNum').innerHTML = childrenNum
+
     if (childrenInt === 1) {
         childrenCount.innerHTML = `${'&nbsp;—&nbsp;'} ${childrenInt} ${'Child'}`;
     } else {
@@ -229,6 +237,7 @@ const clickMinusRooms = function (event) {
 personsItem3Btn1.addEventListener('click', clickMinusRooms);
 //_______________________________________________________________________________
 //___добавление фильтра выбоора возраста ребенка___
+
 const addChildSelection = function () {
     //___<select class="select-child-age">___
     let personsChildSelect = document.createElement('select');
@@ -253,7 +262,7 @@ const addChildSelection = function () {
     <option value="16">16 years old</option>
     <option value="17">17 years old</option>
 `;
-    personsChild.insertAdjacentElement('beforeend', personsChildSelect)
+    childAgeSelection.insertAdjacentElement('beforeend', personsChildSelect)
     if (childrenInt > 9) {
         personsItem2Btn2.removeEventListener('click', addChildSelection)
     }
@@ -264,7 +273,9 @@ personsItem2Btn2.addEventListener('click', addChildSelection);
 const removeChildSelection = function () {
     //___<select class="select-child-age">___
     let personsChildSelect = document.querySelectorAll('.select-child-age')
-    personsChildSelectAll = personsChildSelect.length - 1;
-    personsChildSelect[personsChildSelectAll].remove()
+    let personsChildSelectAll = personsChildSelect.length - 1;
+    if (personsChildSelect.length <= 0) return;
+    return personsChildSelect[personsChildSelectAll].remove()
+
 }
 personsItem2Btn1.addEventListener('click', removeChildSelection);
