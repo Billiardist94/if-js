@@ -123,7 +123,6 @@ personsItem1Btn1.addEventListener('click', clickMinusAdults);
 //________________________________клик по Children_______________________________________________
 //___клик по +___
 const clickPlusChildren = function (event) {
-
     childrenInt += 1;
     console.log('childrenInt: ' + childrenInt)
     childrenNum = String(childrenInt)
@@ -272,6 +271,7 @@ personsItem2Btn2.addEventListener('click', addChildSelection);
 //___удаление фильтра выбоора возраста ребенка___
 const removeChildSelection = function () {
     //___<select class="select-child-age">___
+    personsItem2Btn2.addEventListener('click', addChildSelection);
     let personsChildSelect = document.querySelectorAll('.select-child-age')
     let personsChildSelectAll = personsChildSelect.length - 1;
     if (personsChildSelect.length <= 0) return;
