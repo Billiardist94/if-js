@@ -44,6 +44,7 @@ button, a, label {
     max-width: 1260px;
     margin: 0 auto;
     padding: 0 15px;
+    position: relative;
 }
 
 /*Header block start*/
@@ -137,28 +138,26 @@ button, a, label {
 /*Header block end*/
 
 /*Intro block start*/
-/*.intro{*/
-/*    min-height: 100vh;*/
-/*    background-image: url("images/bg-image.jpg");*/
-/*    background-repeat: no-repeat;*/
-/*    background-position: center;*/
-/*    background-size: cover;*/
-/*    padding-top: 290px;*/
-/*}*/
-/*.intro-title{*/
-/*    font-weight: 500;*/
-/*    font-size: 50px;*/
-/*    line-height: 59px;*/
-/*    color: #FFFFFF;*/
-/*    margin-bottom: 100px;*/
-/*}*/
-
+.intro{
+    min-height: 100vh;
+    background-image: url("images/bg-image.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding-top: 290px;
+}
+.intro-title{
+    font-weight: 500;
+    font-size: 50px;
+    line-height: 59px;
+    color: #FFFFFF;
+    margin-bottom: 100px;
+}
 .form{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     margin-bottom: 50px;
-
 }
 .inputs{
     display: flex;
@@ -202,9 +201,6 @@ button, a, label {
     justify-content: center;
     position: relative;
 }
-.persons-label{
-    cursor: pointer;
-}
 .submit-form{
     background: #3077C6;
     border-radius: 8px;
@@ -238,12 +234,25 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     background: #fff;
     border-radius: 8px;
     top: 50px;
-}
-#checkbox{
+    z-index: 2;
     display: none;
 }
-#checkbox:checked ~ .block{
-    display: none;
+#persons{
+    outline: none;
+    border: none;
+    height: 64px;
+    width: 100%;
+    border-radius: 8px;
+    cursor: pointer;
+    caret-color: transparent;
+    background-color: #fff;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.guests_count {
+    display: flex;
 }
 .box{
     padding: 22px;
@@ -288,9 +297,15 @@ input[type="number"]::-webkit-inner-spin-button {
     border-color: #b3b3b3;
 }
 .child-age{
-    display: block;
+    display: flex;
     margin-top: 20px
 }
+.child-age-selection {
+    height: auto;
+    background-color: #fff;
+    border: 1px solid #fff;
+}
+
 .child-age-span,
 .select-child-age{
     font-size: 12px;
@@ -303,6 +318,8 @@ input[type="number"]::-webkit-inner-spin-button {
     box-sizing: border-box;
     width: 100px;
     height: 30px;
+    margin: 5px 5px 0 0;
+    float: left;
 }
 
 .apps-form{
@@ -344,6 +361,16 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 /*Columns layout end*/
 
+/*Available hotels start*/
+.available-hotels{
+    display: none;
+    background: #EAF0F9;
+    padding-top: 120px;
+    padding-bottom: 120px;
+    color: #383838;
+}
+/*Available hotels end*/
+
 /*Offers block start*/
 .offers-block{
     margin-top: 120px;
@@ -358,6 +385,11 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 .h3-text{
     font-weight: 500;
+}
+#no-matches{
+    display: none;
+    text-align: center;
+    font-size: 24px;
 }
 .offers-block-header:after{
     --line-width: 50px;
@@ -407,6 +439,7 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 .homes-block-cards{
     position: relative;
+    overflow: hidden;
 }
 .homes-list{
     display: flex;
@@ -414,8 +447,8 @@ input[type="number"]::-webkit-inner-spin-button {
     justify-content: flex-start;
     list-style: none;
     width: 100%;
-    overflow: hidden;
     position: relative;
+    transition: .5s;
 }
 .homes-list-item{
     padding-right: 16px;
@@ -462,9 +495,9 @@ input[type="number"]::-webkit-inner-spin-button {
     display: flex;
     justify-content: space-between;
     position: absolute;
-    left: -20px;
-    right: -5px;
-    top: 30%;
+    left: 0;
+    right: 10px;
+    top: 50%;
 }
 .homes-nav-btn{
     border-radius: 50%;
@@ -484,10 +517,6 @@ input[type="number"]::-webkit-inner-spin-button {
 .nav-svg{
     vertical-align: middle;
     margin: 0 auto;
-}
-.homes-nav-btn:first-child{
-    transform: rotate(180deg);
-    visibility: hidden;
 }
 /*Homes block end*/
 
@@ -1171,16 +1200,14 @@ input[type="number"]::-webkit-inner-spin-button {
     .check-label-desktop{
         display: none;
     }
-    .persons-label{
-        background-color: #fff;
+    #persons{
         border: 4px solid #F5BD41;
         border-radius: 8px;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
+        padding-left: 8px;
+        padding-right: 8px;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 18px;
     }
 
     :root{
