@@ -2,27 +2,27 @@
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
-    src: url('../if-html/fonts/roboto-v20-latin-regular.woff') format('woff');
+    src: url('fonts/roboto-v20-latin-regular.woff') format('woff');
 }
 @font-face {
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 500;
-    src: url("../if-html/fonts/roboto-v20-latin-500.woff") format('woff');
+    src: url("fonts/roboto-v20-latin-500.woff") format('woff');
 }
 /* open-sans-regular - latin */
 @font-face {
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: 400;
-    src: url("../if-html/fonts/open-sans-v18-latin-regular.woff") format('woff');
+    src: url("fonts/open-sans-v18-latin-regular.woff") format('woff');
 }
 /* open-sans-600 - latin */
 @font-face {
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: 600;
-    src: url("../if-html/fonts/open-sans-v18-latin-600.woff") format('woff');
+    src: url("fonts/open-sans-v18-latin-600.woff") format('woff');
 }
 html {
     box-sizing: border-box;
@@ -44,6 +44,7 @@ button, a, label {
     max-width: 1260px;
     margin: 0 auto;
     padding: 0 15px;
+    position: relative;
 }
 
 /*Header block start*/
@@ -299,6 +300,12 @@ input[type="number"]::-webkit-inner-spin-button {
     display: flex;
     margin-top: 20px
 }
+.child-age-selection {
+    height: auto;
+    background-color: #fff;
+    border: 1px solid #fff;
+}
+
 .child-age-span,
 .select-child-age{
     font-size: 12px;
@@ -311,8 +318,8 @@ input[type="number"]::-webkit-inner-spin-button {
     box-sizing: border-box;
     width: 100px;
     height: 30px;
-    display: flex;
-    margin-top: 10px;
+    margin: 5px 5px 0 0;
+    float: left;
 }
 
 .apps-form{
@@ -379,6 +386,11 @@ input[type="number"]::-webkit-inner-spin-button {
 .h3-text{
     font-weight: 500;
 }
+#no-matches{
+    display: none;
+    text-align: center;
+    font-size: 24px;
+}
 .offers-block-header:after{
     --line-width: 50px;
     display: block;
@@ -427,6 +439,7 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 .homes-block-cards{
     position: relative;
+    overflow: hidden;
 }
 .homes-list{
     display: flex;
@@ -434,7 +447,6 @@ input[type="number"]::-webkit-inner-spin-button {
     justify-content: flex-start;
     list-style: none;
     width: 100%;
-    overflow: hidden;
     position: relative;
 }
 .homes-list-item{
@@ -482,9 +494,9 @@ input[type="number"]::-webkit-inner-spin-button {
     display: flex;
     justify-content: space-between;
     position: absolute;
-    left: -20px;
-    right: -5px;
-    top: 30%;
+    left: 0;
+    right: 10px;
+    top: 50%;
 }
 .homes-nav-btn{
     border-radius: 50%;
@@ -504,10 +516,6 @@ input[type="number"]::-webkit-inner-spin-button {
 .nav-svg{
     vertical-align: middle;
     margin: 0 auto;
-}
-.homes-nav-btn:first-child{
-    transform: rotate(180deg);
-    visibility: hidden;
 }
 /*Homes block end*/
 

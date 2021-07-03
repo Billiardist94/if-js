@@ -1,210 +1,55 @@
-//__________5.0.__________
-const data = [
-    {
-        name: 'Hotel Leopold',
-        city: 'Saint Petersburg',
-        country: 'Russia',
-        imageUrl: 'https://res.cloudinary.com/intellectfox/image/upload/v1610379365/fe/hotel-leopold_mflelk.jpg',
-    },
-    {
-        name: 'Apartment Sunshine',
-        city: 'Santa  Cruz de Tenerife',
-        country: 'Spain',
-        imageUrl: 'https://res.cloudinary.com/intellectfox/image/upload/v1610379364/fe/apartment-sunshine_vhdlel.jpg',
-    },
-    {
-        name: 'Villa Kunerad',
-        city: 'Vysokie Tatry',
-        country: 'Slowakia',
-        imageUrl: 'https://res.cloudinary.com/intellectfox/image/upload/v1610379365/fe/villa-kunerad_gdbqgv.jpg',
-    },
-    {
-        name: 'Hostel Friendship',
-        city: 'Berlin',
-        country: 'Germany',
-        imageUrl: 'https://res.cloudinary.com/intellectfox/image/upload/v1610379364/fe/hostel-friendship_aw6tn7.jpg',
-    },
-    {
-        name: 'Radisson Blu Hotel',
-        city: 'Kyiv',
-        country: 'Ukraine',
-        imageUrl: 'https://res.cloudinary.com/intellectfox/image/upload/v1610379365/fe/radisson-blu-hotel_jwtowg.jpg',
-    },
-    {
-        name: 'Paradise Hotel',
-        city: 'Guadalupe',
-        country: 'Mexico',
-        imageUrl: 'https://res.cloudinary.com/intellectfox/image/upload/v1610379365/fe/paradise-hotel_i6whae.jpg',
-    },
-    {
-        name: 'Hotel Grindewald',
-        city: 'Interlaken',
-        country: 'Switzerland',
-        imageUrl: 'https://res.cloudinary.com/intellectfox/image/upload/v1610379365/fe/hotel-grindewald_zsjsmy.jpg',
-    },
-    {
-        name: 'The Andaman Resort',
-        city: 'Port Dickson',
-        country: 'Malaysia',
-        imageUrl: 'https://res.cloudinary.com/intellectfox/image/upload/v1610379365/fe/the-andaman-resort_d2xksj.jpg',
-    },
-];
-const bubbleSort = function (arr) {
-
-    for (let j = 0; j < arr.length - 1; j++) {
-        for (let i = 0; i < arr.length - 1; i++) {
-            if (arr[i].name > arr[i + 1].name) {
-                let current = arr[i].name;
-                arr[i].name = arr[i + 1].name
-                arr[i + 1].name = current
-            }
-        }
-    }
-    return arr
-}
-console.log(bubbleSort(data));
-//__________6.0.__________
 //____________________________________Persons________________________________________
-//___<div class="search-form-group persons col-3 col-md-6 col-sm-6">___
-const personsDiv = document.createElement('div');
-personsDiv.classList.add('persons')
-personsDiv.classList.add('search-form-group');
-personsDiv.classList.add('col-3');
-personsDiv.classList.add('col-md-6');
-personsDiv.classList.add('col-sm-6');
-const datesDiv = document.querySelector('.dates')
-datesDiv.after(personsDiv);
 //___<input type="text" id="persons">___
-const inputDiv = document.createElement('div');
-inputDiv.id = 'persons';
-personsDiv.insertAdjacentElement('afterbegin', inputDiv);
-//___<span class="guests_count">___
-const guestsCount = document.createElement('span');
-guestsCount.classList.add('guests_count');
-inputDiv.appendChild(guestsCount);
+const inputDiv = document.querySelector('#persons')
+
 //___<span>2</span>___
-const adultsCount = document.createElement('span');
-adultsCount.innerHTML = '2 Adults';
-guestsCount.insertAdjacentElement('afterbegin', adultsCount);
+const adultsCount = document.querySelector('#adultsSpan')
+
 //___<span>0</span>___
-const childrenCount = document.createElement('span');
-childrenCount.innerHTML = `${'&nbsp;—&nbsp;'} ${'0 Children'}`;
-adultsCount.after(childrenCount);
+const childrenCount = document.querySelector('#childrenSpan')
+
 //___<span>1</span>___
-const roomsCount = document.createElement('span');
-roomsCount.innerHTML = `${'&nbsp;—&nbsp;'} ${'1 Room'}`;
-childrenCount.after(roomsCount);
+const roomsCount = document.querySelector('#roomsSpan')
 
 //___<div class="block">___
-const personsBlockDiv = document.createElement('div');
-personsBlockDiv.classList.add('block');
-personsDiv.insertAdjacentElement("beforeend", personsBlockDiv);
-//___<div class="box">___
-const personsBoxDiv = document.createElement('div');
-personsBoxDiv.classList.add('box');
-personsBlockDiv.appendChild(personsBoxDiv);
+const personsBlockDiv = document.querySelector('.block')
 //____________________________________Adults__________________________________________
-//___<div class="item">___
-const personsItemDiv1 = document.createElement('div');
-personsItemDiv1.classList.add('item');
-personsBoxDiv.insertAdjacentElement('afterbegin', personsItemDiv1);
-personsItemDiv1.innerHTML = '<span>Adults</span>';
-//___<div class="choose">___
-const personsItem1Div = document.createElement('div');
-personsItem1Div.classList.add('choose');
-personsItem1Div.innerHTML = '<span id="adultsNum">2</span>';
-personsItemDiv1.insertAdjacentElement('beforeend', personsItem1Div);
 //___<input style="display: none" class="input" type="number" min="0" max="30" value="2">___
-const personsItem1Input = document.createElement('input');
-personsItem1Input.classList.add('input');
-personsItem1Input.style = 'display: none';
-personsItem1Input.type = 'number';
-personsItem1Input.setAttribute('value', '2');
-personsItem1Div.insertAdjacentElement('afterbegin', personsItem1Input);
+const personsItem1Input = document.querySelector('#inputAdults')
+
 //___<button type="button" class="btn"><span>-</span></button>___
-const personsItem1Btn1 = document.createElement('button');
-personsItem1Btn1.classList.add('btn');
-personsItem1Btn1.type = 'button';
-personsItem1Input.after(personsItem1Btn1);
-personsItem1Btn1.innerHTML = '<span>-</span>';
+const personsItem1Btn1 = document.querySelector('#btnAdultMinus')
+
 //___<button type="button" class="btn"><span>+</span></button>___
-const personsItem1Btn2 = document.createElement('button');
-personsItem1Btn2.classList.add('btn');
-personsItem1Btn2.type = 'button';
-personsItem1Btn2.innerHTML = '<span>+</span>';
-personsItem1Div.insertAdjacentElement("beforeend", personsItem1Btn2);
+const personsItem1Btn2 = document.querySelector('#btnAdultPlus')
+
 //____________________________________Children________________________________________
-//___<div class="item">___
-const personsItemDiv2 = document.createElement('div');
-personsItemDiv2.classList.add('item');
-personsItemDiv1.after(personsItemDiv2);
-personsItemDiv2.innerHTML = '<span>Children</span>';
-//___<div class="choose">___
-const personsItem2Div = document.createElement('div');
-personsItem2Div.classList.add('choose');
-personsItem2Div.innerHTML = '<span id="childrenNum">0</span>';
-personsItemDiv2.insertAdjacentElement('beforeend', personsItem2Div);
 //___<input style="display: none" class="input" type="number" min="0" max="10" value="0">___
-const personsItem2Input = document.createElement('input');
-personsItem2Input.classList.add('input');
-personsItem2Input.style = 'display: none';
-personsItem2Input.type = 'number';
-personsItem2Input.setAttribute('value', '0');
-personsItem2Div.insertAdjacentElement('afterbegin', personsItem2Input);
+const personsItem2Input = document.querySelector('#inputChildren')
+
 //___<button type="button" class="btn"><span>-</span></button>___
-const personsItem2Btn1 = document.createElement('button');
-personsItem2Btn1.classList.add('btn');
-personsItem2Btn1.classList.add('disabled-btn');
-personsItem2Btn1.type = 'button';
-personsItem2Input.after(personsItem2Btn1);
-personsItem2Btn1.innerHTML = '<span>-</span>';
+const personsItem2Btn1 = document.querySelector('#btnChildrenMinus')
+
 //___<button type="button" class="btn"><span>+</span></button>___
-const personsItem2Btn2 = document.createElement('button');
-personsItem2Btn2.classList.add('btn');
-personsItem2Btn2.type = 'button';
-personsItem2Btn2.innerHTML = '<span>+</span>';
-personsItem2Div.insertAdjacentElement("beforeend", personsItem2Btn2);
+const personsItem2Btn2 = document.querySelector('#btnChildrenPlus')
+
 //____________________________________Rooms________________________________________
-//___<div class="item">___
-const personsItemDiv3 = document.createElement('div');
-personsItemDiv3.classList.add('item');
-personsItemDiv2.after(personsItemDiv3);
-personsItemDiv3.innerHTML = '<span>Rooms</span>';
-//___<div class="choose">___
-const personsItem3Div = document.createElement('div');
-personsItem3Div.classList.add('choose');
-personsItem3Div.innerHTML = '<span id="roomsNum">1</span>';
-personsItemDiv3.insertAdjacentElement('beforeend', personsItem3Div);
 //___<input style="display: none" class="input" type="number" min="0" max="30" value="0">___
-const personsItem3Input = document.createElement('input');
-personsItem3Input.classList.add('input');
-personsItem3Input.style = 'display: none';
-personsItem3Input.type = 'number';
-personsItem3Input.setAttribute('value', '1');
-personsItem3Div.insertAdjacentElement('afterbegin', personsItem3Input);
+const personsItem3Input = document.querySelector('#inputRooms')
+
 //___<button type="button" class="btn"><span>-</span></button>___
-const personsItem3Btn1 = document.createElement('button');
-personsItem3Btn1.classList.add('btn');
-personsItem3Btn1.type = 'button';
-personsItem3Input.after(personsItem3Btn1);
-personsItem3Btn1.innerHTML = '<span>-</span>';
+const personsItem3Btn1 = document.querySelector('#btnRoomsMinus')
+
 //___<button type="button" class="btn"><span>+</span></button>___
-const personsItem3Btn2 = document.createElement('button');
-personsItem3Btn2.classList.add('btn');
-personsItem3Btn2.type = 'button';
-personsItem3Btn2.innerHTML = '<span>+</span>';
-personsItem3Div.insertAdjacentElement("beforeend", personsItem3Btn2);
+const personsItem3Btn2 = document.querySelector('#btnRoomsPlus')
+
 //____________________________________Child age________________________________________
 //___<div class="child-age">___
-const personsChild = document.createElement('div');
-personsChild.classList.add('child-age');
-personsChild.style.display = 'none';
-personsItemDiv3.after(personsChild);
-//___<p class="child-age-span">What is the age of the child you’re travelling with?</p>___
-const personsChildText = document.createElement('p');
-personsChildText.classList.add('child-age-span');
-personsChildText.innerText = 'What is the age of the child you’re travelling with?';
-personsChild.appendChild(personsChildText);
+const personsChild = document.querySelector('.child-age')
+
+//___<div class="child-age-selection">___
+const childAgeSelection = document.querySelector('.child-age-selection')
+
 //_________________________________________________________________________________
 //___появление блока с фильтром___
 const openBox = function (){
@@ -219,8 +64,9 @@ inputDiv.addEventListener('click', openBox);
 //___клик на кнопки +/-_________________________________________________________________________________
 let adultsInt = Number.parseInt(personsItem1Input.value);
 let adultsNum = document.querySelector('#adultsNum');
-let childrenInt = Number.parseInt(personsItem2Input.value);
-let childrenNum = document.querySelector('#childrenNum');
+// let childrenInt = Number.parseInt(personsItem2Input.value);
+let childrenNum = document.querySelector('#childrenNum').innerHTML
+let childrenInt = Number.parseInt(childrenNum)
 let roomsInt = Number.parseInt(personsItem3Input.value);
 let roomsNum = document.querySelector('#roomsNum');
 //________________________________клик по Adults________________________________________________
@@ -278,8 +124,10 @@ personsItem1Btn1.addEventListener('click', clickMinusAdults);
 //___клик по +___
 const clickPlusChildren = function (event) {
     childrenInt += 1;
-    childrenNum.innerHTML = childrenInt;
-    console.log(childrenInt)
+    console.log('childrenInt: ' + childrenInt)
+    childrenNum = String(childrenInt)
+    console.log('childrenNum: ' + childrenNum)
+    document.querySelector('#childrenNum').innerHTML = childrenNum
     if (childrenInt === 1) {
         childrenCount.innerHTML = `${'&nbsp;—&nbsp;'} ${childrenInt} ${' Child'}`;
     } else {
@@ -300,7 +148,6 @@ const clickPlusChildren = function (event) {
         personsItem2Btn2.classList.remove('disabled-btn')
         personsItem2Btn2.addEventListener('click', clickPlusChildren);
     }
-
 };
 personsItem2Btn2.addEventListener('click', clickPlusChildren);
 // ___клик по -___
@@ -309,8 +156,11 @@ const clickMinusChildren = function (event) {
         return
     }
     childrenInt -= 1;
-    childrenNum.innerHTML = childrenInt;
-    console.log(childrenInt)
+    console.log('childrenInt: ' + childrenInt)
+    childrenNum = String(childrenInt)
+    console.log('childrenNum: ' + childrenNum)
+    document.querySelector('#childrenNum').innerHTML = childrenNum
+
     if (childrenInt === 1) {
         childrenCount.innerHTML = `${'&nbsp;—&nbsp;'} ${childrenInt} ${'Child'}`;
     } else {
@@ -386,11 +236,11 @@ const clickMinusRooms = function (event) {
 personsItem3Btn1.addEventListener('click', clickMinusRooms);
 //_______________________________________________________________________________
 //___добавление фильтра выбоора возраста ребенка___
+
 const addChildSelection = function () {
     //___<select class="select-child-age">___
     let personsChildSelect = document.createElement('select');
     personsChildSelect.classList.add('select-child-age');
-    personsChildSelect.name = 'select-child-age'
     personsChildSelect.innerHTML = `
     <option value="0">0 years old</option>
     <option value="1">1 years old</option>
@@ -411,7 +261,7 @@ const addChildSelection = function () {
     <option value="16">16 years old</option>
     <option value="17">17 years old</option>
 `;
-    personsChild.insertAdjacentElement('beforeend', personsChildSelect)
+    childAgeSelection.insertAdjacentElement('beforeend', personsChildSelect)
     if (childrenInt > 9) {
         personsItem2Btn2.removeEventListener('click', addChildSelection)
     }
@@ -421,12 +271,14 @@ personsItem2Btn2.addEventListener('click', addChildSelection);
 //___удаление фильтра выбоора возраста ребенка___
 const removeChildSelection = function () {
     //___<select class="select-child-age">___
+    personsItem2Btn2.addEventListener('click', addChildSelection);
     let personsChildSelect = document.querySelectorAll('.select-child-age')
-    personsChildSelectAll = personsChildSelect.length - 1;
-    personsChildSelect[personsChildSelectAll].remove()
+    let personsChildSelectAll = personsChildSelect.length - 1;
+    if (personsChildSelect.length <= 0) return;
+    return personsChildSelect[personsChildSelectAll].remove()
+
 }
 personsItem2Btn1.addEventListener('click', removeChildSelection);
-//_____________________________________________________________________________________________
 //_______________Получение данных из формы_______________
 const form = document.querySelector('.form');
 
@@ -489,6 +341,73 @@ function retrieveFormValue(event) {
                 const ul = document.querySelector('.homes-list')
                 ul.innerHTML = homesListCardsHTML;
                 availableHotelsSection.scrollIntoView({behavior: "smooth"})
+
+                //_____________________________Карусель_____________________________
+                let position = 0;
+                let screenWidth = document.documentElement.clientWidth
+                let slidesToShow = (screenWidth < 1024) ? 2 : 4;
+                const slidesToScroll = 1;
+                const container = document.querySelector('.homes-block-cards');
+                const items = document.querySelectorAll('.homes-list-item');
+                const btnPrev = document.querySelector('#hgl-leftBtn');
+                const btnNext = document.querySelector('#hgl-rightBtn');
+                const itemsCount = items.length;
+                const itemWidth = container.clientWidth / slidesToShow;
+                const movePosition = slidesToScroll * itemWidth;
+                console.log(itemsCount)
+                if (itemsCount <= 4) {
+                    btnPrev.style.display = 'none';
+                    btnNext.style.display = 'none';
+                } else {
+                    const noMatches = document.querySelector('#no-matches');
+                    noMatches.style.display = 'none'
+                    btnPrev.style.display = 'block';
+                    btnNext.style.display = 'block';
+                }
+                if (itemsCount === 0) {
+                    const noMatches = document.querySelector('#no-matches');
+                    noMatches.style.display = 'block'
+                    noMatches.innerText = `Found ${itemsCount} matches`
+                    noMatches.style.marginTop = '0';
+                } else {
+                    const noMatches = document.querySelector('#no-matches');
+                    noMatches.style.display = 'block'
+                    noMatches.style.color = '#383838'
+                    noMatches.style.marginTop = '30px';
+                    noMatches.innerHTML = `Found ${itemsCount} matches`
+                }
+
+                items.forEach((item) => {
+                    item.style.minWidth = `${itemWidth}px`;
+                });
+
+                btnNext.addEventListener('click', () => {
+                    const itemsLeft = itemsCount - (Math.abs(position) + slidesToShow * itemWidth) / itemWidth;
+
+                    position -= itemsLeft >= slidesToScroll ? movePosition : itemsLeft * itemWidth;
+
+                    setPosition();
+                    checkBtns();
+                });
+
+                btnPrev.addEventListener('click', () =>{
+                    const itemsLeft = Math.abs(position) / itemWidth
+
+                    position += itemsLeft >= slidesToScroll ? movePosition : itemsLeft * itemWidth;
+
+                    setPosition();
+                    checkBtns();
+                });
+
+                const setPosition = () => {
+                    ul.style.transform = `translateX(${position}px)`
+                };
+
+                const checkBtns = () => {
+                    btnPrev.disabled = position === 0;
+                    btnNext.disabled = position <= -(itemsCount - slidesToShow) * itemWidth;
+                };
+                checkBtns();
             })
             .catch(function(err) {
                 console.log(err);
@@ -496,5 +415,4 @@ function retrieveFormValue(event) {
     }
     getRequest()
 }
-
 form.addEventListener('submit', retrieveFormValue)
