@@ -448,6 +448,7 @@ input[type="number"]::-webkit-inner-spin-button {
     list-style: none;
     width: 100%;
     position: relative;
+    transition: .5s;
 }
 .homes-list-item{
     padding-right: 16px;
